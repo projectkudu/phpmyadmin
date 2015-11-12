@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.applicationHost>
+    <sites>
+      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+        <application path="/phpmyadmin" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+        <application path="/phpmyadmin" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+          <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+        </application>
+      </site>
+    </sites>
+  </system.applicationHost>
+  <location path="%XDT_SCMSITENAME%/phpmyadmin" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+  <location path="%XDT_SCMSITENAME%/phpmyadmin" xdt:Locator="Match(path)" xdt:Transform="Insert" >
+    <system.webServer>
+      <handlers accessPolicy="Read, Script">
+        <add name="PHP55_via_FastCGI" path="*.php" verb="GET,HEAD,POST" modules="FastCgiModule" scriptProcessor="%SystemDrive%\Program Files (x86)\PHP\v5.5\php-cgi.exe" resourceType="Either" />
+      </handlers>
+    </system.webServer>
+  </location>
+</configuration>
