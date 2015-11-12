@@ -544,7 +544,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . ";"
-            . "referrer no-referrer;"
+            . "referrer origin;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
@@ -556,7 +556,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "options inline-script eval-script;"
-            . "referrer no-referrer;"
+            . "referrer origin;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
@@ -571,7 +571,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . " 'unsafe-inline' 'unsafe-eval';"
-            . "referrer no-referrer;"
+            . "referrer origin;"
             . "style-src 'self' 'unsafe-inline' "
             . $captcha_url
             . ';'
@@ -638,7 +638,7 @@ class Header
     private function _getMetaTags()
     {
         $retval  = '<meta charset="utf-8" />';
-        $retval .= '<meta name="referrer" content="no-referrer" />';
+        $retval .= '<meta name="referrer" content="origin" />';
         $retval .= '<meta name="robots" content="noindex,nofollow" />';
         $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge" />';
         if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {

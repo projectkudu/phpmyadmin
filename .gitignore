@@ -40,7 +40,8 @@ revision-info.php
 phpunit.xml
 /test/bootstrap.php
 # Jenkins
-/build/
+#/build/
+msbuild.log
 # Netbeans ide stuff
 /nbproject/
 # Eclipse ide stuff
