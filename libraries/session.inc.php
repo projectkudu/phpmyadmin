@@ -71,7 +71,8 @@ session_cache_limiter('private');
 // on the session data directory, so I add some "@"
 
 // See bug #1538132. This would block normal behavior on a cluster
-//ini_set('session.save_handler', 'files');
+// [suwatch] avoid wincache session crashing
+ini_set('session.save_handler', 'files');
 
 $session_name = 'phpMyAdmin';
 @session_name($session_name);
